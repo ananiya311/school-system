@@ -1,9 +1,9 @@
 const mongoose = require('mongoose')
 
-const grade = mongoose.Schema({
+const gradescema = mongoose.Schema({
     name:{
         type:String,
-        required:true
+        
     },
     id:{
         type:String,
@@ -18,3 +18,5 @@ const grade = mongoose.Schema({
         required:true
     }
 })
+
+module.exports = mongoose.model('grad', gradescema)
