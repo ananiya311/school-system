@@ -28,14 +28,10 @@ const editStudentInfo = async(req, res)=>{
 
 const grade = async(req, res)=>{
     const grad = await grads.create(req.body)
-    const {_id:sid, id:Gid} = grad
-    const {name} = await data.findOne({id:Gid})
-   
-    const resalt = await grads.findOneAndUpdate({_id:sid},{name:name},{
-        new:true,
-        runValidators:true
-    })
-    res.json(resalt)
+    const {_id:gid, id} = grad
+    const {name} = await data.findOne({id: id})
+    const test = await grads.findOneAndUpdate({_id:gid}, {name: name})
+    res.json(gid);
 }
 
 const viewGrads= async(req, res)=>{

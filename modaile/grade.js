@@ -2,8 +2,7 @@ const mongoose = require('mongoose')
 
 const gradescema = mongoose.Schema({
     name:{
-        type:String,
-        
+        type: String
     },
     id:{
         type:String,

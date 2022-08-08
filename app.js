@@ -4,12 +4,15 @@ const app = expserss()
 const route = require('./router/routers')
 require('dotenv').config()
 
-const port  = 1111
+
 app.use(expserss.json())
+app.use(expserss.static('./public'))
+
 app.use('/api/v1/student', route)
 
 
 
+const port  = 1111
 
 const start = async ()=>{
     await connectDB(process.env.URI_DB)
