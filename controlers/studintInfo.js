@@ -23,7 +23,9 @@ const editStudentInfo = async(req, res)=>{
         new:true,
         runValidators:true
     })
-    res.json(student)
+    const {id, name} = student
+    await grads.updateMany({id: id},{$set: {name: name}})
+    
 }
 
 const grade = async(req, res)=>{
