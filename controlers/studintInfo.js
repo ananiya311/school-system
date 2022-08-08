@@ -8,7 +8,6 @@ const RegistarStudent = async (req, res)=>{
 
 const viewStudent = async (req, res)=>{
     const {sort} = req.query
-    let queryob = {}
     let student = data.find()
     if(sort){
         student = student.sort(sort)        
