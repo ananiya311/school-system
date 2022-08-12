@@ -7,10 +7,21 @@ const RegistarStudent = async (req, res)=>{
 }
 
 const viewStudent = async (req, res)=>{
-    const {sort} = req.query
-    let student = data.find()
+    const {sort, id: sid} = req.query
+    let student = data
     if(sort){
-        student = student.sort(sort)        
+        student = student.find().sort(sort)       
+    }
+    if(sid){
+        student = student.findOne({id: sid})
+        if(sort){
+            student = student.sort(sort)
+        }
+    }else{
+        student = student.find()
+        if(sort){
+            student = student.sort(sort)
+        }
     }
     const resalt = await student
     res.json(resalt)
@@ -36,18 +47,26 @@ const grade = async(req, res)=>{
 }
 
 const viewGrads= async(req, res)=>{
-    const grad = await grads.find().sort('id')
-    res.json(grad)
+    let{id: sid} = req.query
+    let student = grads
+    if(sid){
+        student = student.find({id:sid})
+    }else{
+        student = student.find()
+    }
+    const resalt = await student.sort('id')
+    res.json(resalt)
 }
 
 const editGrad = async(req, res)=>{
     const {id} = req.params
-    const grade = await grads.findOneAndUpdate({id:id}, req.body, {
+    const grade = await grads.findOneAndUpdate({_id:id}, req.body, {
         new:true,
         runValidators:true
     })
     res.json(grade)
 }
+
 
 module.exports = {
     RegistarStudent,
