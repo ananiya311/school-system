@@ -1,37 +1,169 @@
 body{
     margin: 0 auto;
-    width: 80%;
-    background-color: antiquewhite;
-    height: 1100px;
 }
+
 #contaner{
-    border: 1px solid black;
     height: 1100px;
 }
-html{
-    background-color: white;
-}
+
 #body{
     display: flex;
     flex-wrap: wrap;
-    border: 1px solid black;
     height: 800px;
+    
 }
+
 header{
     height: 200px;
     border: 1px solid black;
+    background-image: url(header2.png);
 }
+header a{
+    color: white  ;
+}
+
+
 aside{
-    border: 1px solid black;
     width: 160px;
-    margin: 10px;
+    height: 450px;
+    margin: 10px 0px 10px 10px;
+    text-align:center;
+    padding-top: 10px ;
+    
 }
+aside a{
+    text-decoration: none;
+    color: black;
+    font-family:  Serif;
+    
+}
+aside #hr{
+    margin-top: 40px;
+}
+
 main{
-    border: 1px solid black;
-    width: 800px;
-    margin:10px 0px 10px 40px;
+    border-left: 1px solid gray;
+    border-right: 1px solid gray;
+    width: 1150px;
+    margin:10px 0px 10px 10px;
 }
+
 footer{
     border: 1px solid black;
     height: 100px;
+    background-image: url(header2.png);
+    text-align: right;
 }
+footer a{
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+    
+}
+footer a:hover{
+    color: lightblue;
+}
+
+main, aside{
+    background-color: white;
+}
+
+#button{
+    height: 41px;
+    width: 90px;
+    background-color:rgba(40, 43, 255, 0.342);
+    border-width: 0px;
+    border-radius: 6px;
+    margin-left: 10px;
+    margin-right: 5px;
+    margin-bottom: 10px;
+    color: white;
+    font-size: 17px;
+   
+}
+
+#button:hover{
+    background-color: rgb(2, 38, 136);
+    
+}
+
+#search-input{
+    height: 40px;
+    width: 500px;
+    background-color: rgb(255, 255, 255);
+    border-width: 0px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+img{
+   height: 80px;
+   width: 80px;
+}
+
+section{
+    margin-left: 30px;
+    display:inline-block;
+    width:100%;
+}
+
+#header1{
+    font-size: 40px;
+    font-weight:bold;
+    color:white;
+    display:inline-block;
+}
+
+#linkh{
+    margin: 10px;
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+   
+}
+
+#headercon{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#serchlink{
+    margin-left: 100px;
+}
+
+#serchlink a:hover{
+    color: lightblue;
+}
+
+#fa{
+    font-size: 50px;
+    border: 1px solid white;
+    margin-left: 350px ;
+    margin-top: 20px;
+    height: 45.99px;
+    width: 45px;
+    padding:8px 0px 0px 20px;
+    background-color: #3921c4;
+    border-radius: 5px;
+
+}
+
+#te{
+    margin-top:21px;
+    font-size: 55px;
+    margin-left: 20px ;
+}
+
+#insta{
+    margin-top: 16px;
+    margin-left: 20px;
+    font-size: 55px;
+    border: 1px solid pink;
+    width: 55px;
+    height: 55px;
+    padding-left: 10px;
+    padding-top: 5px;
+    background-color: black;
+    border-radius: 5px;
+}
+
