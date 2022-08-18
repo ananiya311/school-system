@@ -18,18 +18,18 @@
             </section>
                 <div id="headercon">
                     <div id="serchlink">
-                        <input type="button" value="search" id="button">
+                        <input type="button" value="search" id="button" onclick="sarchStudentIfo()">
                         <input type="text" placeholder="input ID" id="search-input">
                         <br>
-                        <a href="#" id="linkh" data-sort="name">Sort by Name</a>
-                        <a href="#" id="linkh" data-sort="id">Sort by ID</a>
-                        <a href="#" id="linkh" data-sort="inrollmant">Sort by inrollmant date</a>
-                        <a href="#" id="linkh" data-sort="age">Sort by Age</a>  
+                        <a href="#" id="linkh" data-sort="name" class="sort">Sort by Name</a>
+                        <a href="#" id="linkh" data-sort="id" class="sort">Sort by ID</a>
+                        <a href="#" id="linkh" data-sort="inrollmentDate" class="sort">Sort by inrollmant date</a>
+                        <a href="#" id="linkh" data-sort="age" class="sort">Sort by Age</a>
+                        <a href="#" id="linkh" data-sort="saction" class="sort">Saction</a>    
                     </div>
                         <a href="https://www.facebook.com/UNITY-University-855561114497854/"><i class="fa fa-facebook" id="fa"></i></a>
                         <a href="https://telegram.me/s/UnityEthio"><i class="fa fa-telegram" aria-hidden="true" id="te"></i></a>
                         <a href="https://www.instagram.com/unityethiopia/"><i class="fa fa-instagram" id="insta"></i></a>
-                        <a href="#"><i class="fa fa-email" id="test"></i></a>
                     </div>
         </header>
         <div id="body">
@@ -38,8 +38,8 @@
                 <a href="#">Ragestar Form</a><br>
                 <hr id="hr">
                 <a href="#" >Edit Form</a><br>
-                <hr id="hr">
-                <a href="#">View Student Info</a><br>
+                <hr id="hr" hidden>
+                <a href="#" hidden>View Student Info</a><br hidden>
                 <hr id="hr">
                 <a href="#">Grading Form</a>
                 <hr id="hr">
@@ -51,6 +51,9 @@
             <main id="main">
                 <div id="studentinfo">
                     <h1 style="text-align: center;" hidden id="looding">LOODING......</h1>
+                    <div id="students">
+
+                    </div>
                 </div>
             </main>
         </div>
@@ -64,6 +67,7 @@
         </footer>
     </div>
 </body>
+<!-- <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> -->
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="index.js"></script>
 </html>

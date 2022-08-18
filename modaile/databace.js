@@ -13,6 +13,9 @@ const studetndata = mongoose.Schema({
         type:Number,
         required:true
     },
+    sex:{
+        type:String
+    },
     departemnt:{
         type:String,
         required:true

@@ -15,7 +15,7 @@ app.use('/api/v1/student', route)
 const port  = 1111
 
 const start = async ()=>{
-    // await connectDB(process.env.URI_DB)
+    await connectDB(process.env.URI_DB)
     app.listen(port, console.log('the port is runing', port))
 }
 start()
