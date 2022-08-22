@@ -9,6 +9,7 @@ const RegistarStudent = async (req, res)=>{
 const viewStudent = async (req, res)=>{
     const {sort, id: sid} = req.query
     let student = data
+    
     if(sort){
         student = student.find().sort(sort)       
     }
@@ -18,11 +19,12 @@ const viewStudent = async (req, res)=>{
             student = student.sort(sort)
         }
     }else{
-        student = student.find()
+        student = student.find().sort('id')
         if(sort){
             student = student.sort(sort)
         }
     }
+
     const resalt = await student
     res.json(resalt)
 }
@@ -33,9 +35,20 @@ const editStudentInfo = async(req, res)=>{
         new:true,
         runValidators:true
     })
+    res.json(student)
     const {id, name} = student
     await grads.updateMany({id: id},{$set: {name: name}})
     
+}
+
+const deleltStudentInof = async(req, res)=>{
+    const {id:sid}= req.params
+    const student = await data.findOneAndDelete({_id:sid})
+    const {id} = student
+    const temp = await grads.deleteMany({id:id})
+    res.json(student)
+    
+
 }
 
 const grade = async(req, res)=>{
@@ -67,12 +80,20 @@ const editGrad = async(req, res)=>{
     res.json(grade)
 }
 
+const deleteGrad = async(req, res)=>{
+    const {id} = req.params
+    const grade = await grads.findByIdAndDelete({_id:id})
+    res.json(grade)
+}
+
 
 module.exports = {
     RegistarStudent,
     viewStudent,
     editStudentInfo,
+    deleltStudentInof,
     viewGrads,
     grade,
-    editGrad
+    editGrad,
+    deleteGrad
 }

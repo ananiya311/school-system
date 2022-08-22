@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="edit.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="mainconstaner">
+        <header>
+            <a href="index.html"><img src="OIP.jfif" alt="image is not avaleble"></a>
+            <h1 id="header1">Schoole system for unity university</h1>
+        </header>
+        <main>
+            <div id="search" hidden>
+                <label for="search" >search:</label>
+                <input type="text" id="searchinput" style="width: 200px;" placeholder="Inpu ID" >
+                <input type="button" value="Search" onclick="searcB()"> <br>
+    
+            </div>
+            <label for="id">ID:</label>
+            <input type="text" id="id" disabled>
+            <label for="inrolldate">Inrollmant Date:</label>
+            <input type="text" id="inrolldate" disabled><br>
+            <label for="name">Name:</label>
+            <input type="text" id="name"><br>
+            <label for="age">Age:</label>
+            <input type="text" id="age"><br>
+            <label for="sex">Sex:</label>
+            <select name="sex" id="sex">
+                <option value="M">M</option>
+                <option value="F">F</option>
+            </select>
+            <label for="saction">Saction:</label>
+            <select name="saction" id="saction">
+                <option value="ccn8">ccn8</option>
+                <option value="ccn9">ccn9</option>
+                <option value="ccn10">ccn10</option>
+                <option value="ccn11">ccn11</option>
+                <option value="ccn12">ccn12</option>
+                <option value="ccn13">ccn13</option>
+                <option value="ccn14">ccn14</option>
+                <option value="ccn15">ccn15</option>
+            </select>
+            <label for="departemnt">Departemnt:</label>
+            <select name="departemnt" id="departemnt">
+                <option value="cs">cs</option>
+                <option value="mk">mk</option>
+                <option value="bs">bs</option>
+                <option value="ac">ac</option>
+                <option value="md">md</option>
+                <option value="dds">dds</option>
+            </select><br>
+            <input type="button" id="edit" value="done" onclick="done()">
+            <input type="button" id="cansel" value="cancel" onclick="cancel()">
+            <h3 style="text-align:center; color: rgb(0, 255, 0);" hidden id="succes">edited commpleted</h3>
+        </main>
+        <footer>
+            <a href="#">contact as</a>
+            <a href="#">email</a>
+            <a href="#">halpe canter</a>
+            <a href="#">more info</a>
+            <a href="#" id="info">email</a>
+            <a href="#">phone numbers</a>
+        </footer>
+    </div>
+</body>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="edit.js"></script>
+</html>

@@ -39,6 +39,12 @@ const desplyStudentInfo = async () =>{
                         <td>${temp.sex}</td>
                         <td><b>IrollmentDate:</b></td>
                         <td>${temp.inrollmentDate}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">
+                            <a href="editform.html?id=${temp.id}&eid=${temp._id}"><i class="fa fa-edit"></i></a>
+                            <i class="fa fa-remove" data-id=${temp._id}></i>
+                        </td>
                     </tr>         
                 </table>
             </div>
@@ -86,7 +92,13 @@ sortlink.addEventListener('click', async(e)=>{
                             <td>${temp.sex}</td>
                             <td><b>IrollmentDate:</b></td>
                             <td>${temp.inrollmentDate}</td>
-                        </tr>         
+                        </tr> 
+                        <tr>
+                            <td colspan="4">
+                                <a href="editform.html?id=${temp.id}&eid=${temp._id}"><i class="fa fa-edit"></i></a>
+                                <i class="fa fa-remove" data-id=${temp._id}></i>
+                            </td>
+                        </tr>            
                     </table>
                 </div>
             `
@@ -123,13 +135,37 @@ const sarchStudentIfo = async()=>{
             <td>${data.sex}</td>
             <td><b>IrollmentDate:</b></td>
             <td>${data.inrollmentDate}</td>
-        </tr>         
+        </tr>   
+        <tr>
+            <td colspan="4">
+                <a href="editform.html?id=${temp.id}&eid=${temp._id}"><i class="fa fa-edit"></i></a>
+                <i class="fa fa-remove" data-id=${data._id}></i>
+            </td>
+        </tr>             
     </table>
 </div>
 `
 studentInfo.innerHTML = ''
 looding.hidden = true
 studentInfo.innerHTML = resalt
+
 }
 
+studentInfo.addEventListener('click',async(e)=>{
+    const el = e.target
+    if(el.classList.contains('fa-remove')){
+        try {
+            const confirm = window.confirm("are you shour you whan to delete this student")
+            if(confirm){
+                await axios.delete(`/api/v1/student/${el.dataset.id}`)
+                desplyStudentInfo();
+            }else{
+                console.log('proces aborted')
+            }
+        } catch (error) {
+            console.log(error)
+        }
+
+    }
+})
 
