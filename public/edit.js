@@ -7,6 +7,7 @@ const saction = document.getElementById('saction')
 const departemnt = document.getElementById('departemnt')
 const succes = document.getElementById('succes')
 const search = document.getElementById('search')
+const notfound = document.getElementById('notfound')
 const searchinput = document.getElementById('searchinput')
 const params = window.location.search
 const id = new URLSearchParams(params).get('id')
@@ -57,12 +58,15 @@ const done = async()=>{
                     departemnt: departemnt.value
                 })
                 succes.hidden = false
+                setTimeout(() => {
+                    succes.hidden = true
+                }, 5000);
             } catch (error) {
               console.log(error)
             }
         }else{
             try {
-                const {data} = await axios.get(`/api/v1/student?id=${searchinput.value}`)
+                
                 const test = await axios.patch(`/api/v1/student/${data._id}`,{
                     name: sname.value,
                     age: age.value,
@@ -70,7 +74,11 @@ const done = async()=>{
                     saction: saction.value,
                     departemnt: departemnt.value
                 })
+                searchinput.value = ""
                 succes.hidden = false
+                setTimeout(() => {
+                    succes.hidden = true
+                }, 5000);
             } catch (error) {
               console.log(error)
             }
@@ -89,12 +97,22 @@ const cancel = ()=>{
 
 const searcB = async()=>{
     const {data} = await axios.get(`/api/v1/student?id=${searchinput.value}`)
+    if(data === null){
+        notfound.hidden = false
+        setTimeout(() => {
+            notfound.hidden = true
+        }, 5000);
+    }else{
+        console.log(data)
+        sid.value = data.id
+        inroll.value = data.inrollmentDate
+        sname.value = data.name
+        age.value = data.age
+        sex.value = data.sex
+        saction.value = data.saction
+        departemnt.value = data.departemnt
+        notfound.hidden = true
+    }
+
             
-            sid.value = data.id
-            inroll.value = data.inrollmentDate
-            sname.value = data.name
-            age.value = data.age
-            sex.value = data.sex
-            saction.value = data.saction
-            departemnt.value = data.departemnt
 }

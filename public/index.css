@@ -188,3 +188,8 @@ table{
 #students div{
     margin: 10px;
 }
+table a{
+    text-decoration: none;
+    color: black;
+}
+

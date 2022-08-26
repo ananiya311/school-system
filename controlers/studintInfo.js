@@ -7,7 +7,7 @@ const RegistarStudent = async (req, res)=>{
 }
 
 const viewStudent = async (req, res)=>{
-    const {sort, id: sid} = req.query
+    const {sort, id: sid, aid} = req.query
     let student = data
     
     if(sort){
@@ -15,16 +15,16 @@ const viewStudent = async (req, res)=>{
     }
     if(sid){
         student = student.findOne({id: sid})
-        if(sort){
-            student = student.sort(sort)
-        }
+        
     }else{
         student = student.find().sort('id')
         if(sort){
             student = student.sort(sort)
         }
     }
-
+    if (aid) {
+        student = student.findOne({_id:aid})
+    }
     const resalt = await student
     res.json(resalt)
 }
