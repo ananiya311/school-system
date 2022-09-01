@@ -14,12 +14,19 @@
             <h1 id="header1">Schoole system for unity university</h1>
         </header>
         <main>
+            <h3 style="color: red; text-align: center;" id="error" hidden>Please check if you have filled out all of the fields.</h3>
+            <h3 style="text-align:center; color: rgb(0, 255, 0);" hidden id="succes">student is registered successfully</h3>
+            
             <label for="id">ID:</label>
-            <input type="text" id="id"><br>
+            <input type="text" id="id">
+            <label style="color: red;"hidden id="alredyExists">ID alredy exists</label>
+            <br>
             <label for="name">Name:</label>
-            <input type="text" id="name"><br>
+            <input type="text" id="name">
+            <br>
             <label for="age">Age:</label>
-            <input type="text" id="age"><br>
+            <input type="text" id="age">
+            <br>
             <label for="sex">Sex:</label>
             <select name="sex" id="sex">
                 <option value="M">M</option>
@@ -45,10 +52,9 @@
                 <option value="md">md</option>
                 <option value="dds">dds</option>
             </select><br>
-            <input type="button" id="edit" value="done" onclick="done()">
+            <input type="button" id="edit" value="done" onclick="submit()">
             <input type="button" id="cansel" value="cancel" onclick="cancel()">
-            <h3 style="text-align:center; color: rgb(0, 255, 0);" hidden id="succes">edited commpleted</h3>
-            <h3 style="text-align: center; color: red;" hidden id="notfound">the id you're looking for is not found</h3>
+            
             
         </main>
         <footer>
@@ -62,5 +68,5 @@
     </div>
 </body>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script src=""></script>
+<script src="register.js"></script>
 </html>
